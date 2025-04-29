@@ -2,7 +2,6 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const nodemailer = require('nodemailer');
-const path = require('path');
 const { Pool } = require('pg');
 
 // Inicializar app
@@ -88,15 +87,6 @@ app.post('/api/contact', async (req, res) => {
     res.status(500).json({ error: 'Hubo un error al enviar tu mensaje. Intenta nuevamente.' });
   }
 });
-
-// Frontend en producción
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../frontend')));
-
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../frontend', 'index.html'));
-  });
-}
 
 // Iniciar servidor
 const PORT = process.env.PORT || 5000;
