@@ -1,3 +1,17 @@
+/* Solución para evitar desbordamiento horizontal */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
 /* HEADER */
 .header {
   background-color: #1e1e2f;
@@ -739,4 +753,36 @@
   text-align: center;
   margin-top: 15px;
   font-weight: bold;
+}
+#formularioContacto {
+  display: block !important;
+  background-color: #1e1e2f;
+  padding: 60px 20px;
+}
+
+#formularioContacto,
+#formularioContacto * {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+#formularioContacto input,
+#formularioContacto textarea {
+  display: block !important;
+  width: 100%;
+  max-width: 600px;
+  margin: 10px auto;
+  padding: 12px;
+  border-radius: 5px;
+  border: none;
+}
+
+#formularioContacto button {
+  display: block;
+  margin: 20px auto;
+  padding: 12px 30px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
