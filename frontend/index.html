@@ -40,7 +40,7 @@
         <p class="subtext">Desarrollamos sitios web a medida, rápidos y escalables, que conectan con tus clientes y potencian tu negocio.</p>
         <div class="hero-buttons">
           <a href="#portfolio" class="btn-primary">Ver Portafolio</a>
-          <a href="#contact" class="btn-secondary">Solicitar propuesta</a>
+          <a href="#contact" class="btn-secondary">Solicitar propuesta</a>          
         </div>
       </div>
       <div class="hero-image">
@@ -171,12 +171,12 @@
         formulario.scrollIntoView({ behavior: 'smooth' });
       };
 
-      document.querySelectorAll('a[href="#contact"], .btn-secondary, .btn-contacto, .btn-primary').forEach(boton => {
-        boton.addEventListener('click', (e) => {
-          e.preventDefault();
-          mostrarFormulario();
-        });
-      });
+      document.querySelectorAll('a[href="#contact"], .btn-secondary, .btn-contacto').forEach(boton => {
+      boton.addEventListener('click', (e) => {
+      e.preventDefault();
+      mostrarFormulario();
+    });
+});
 
       document.getElementById('formContacto')?.addEventListener('submit', async (e) => {
         e.preventDefault();
