@@ -105,14 +105,29 @@
 }
 
 .btn-primary {
-  background-color: #1e1e2f;
-  color: #ffffff;
+  background: linear-gradient(135deg, #007bff, #0056d2);
+  color: white;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.25);
 }
 
 .btn-primary:hover {
-  background-color: #d4af37;
-  color: #1e1e2f;
+  background: linear-gradient(135deg, #0056d2, #0041a8);
+  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4);
+  transform: translateY(-2px);
 }
+
+
+
 
 .btn-secondary {
   background-color: #ffffff;
@@ -650,38 +665,78 @@
     flex-direction: column;
     gap: 20px;
   }
+  
+/* Formulario contacto */
+}.formulario-contacto {
+  background-color: #2a2a3d;
+  padding: 60px 30px;
+  border-radius: 12px;
+  max-width: 900px;
+  margin: 60px auto;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
 }
-#contact-form {
+
+.form-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  color: #ffffff;
+}
+
+.form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  margin-top: 1rem;
+  gap: 20px;
 }
 
-#contact-form input,
-#contact-form textarea {
-  padding: 0.8rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+.form-group {
+  display: flex;
+  flex-direction: column;
 }
 
-.mensaje-respuesta {
-  font-size: 0.9rem;
-  margin-top: 0.5rem;
+.form-group label {
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #ddd;
 }
 
+.form-group input,
+.form-group textarea {
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  background-color: #f9f9f9;
+  color: #333;
+  transition: box-shadow 0.3s ease;
+}
 
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  box-shadow: 0 0 5px #4b6aff;
+}
 
+.btn-primary {
+  background-color: #4b6aff;
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 
+.btn-primary:hover {
+  background-color: #3a55d0;
+}
 
-
-
-
-
-
-
-
-
-
-
+.estado-mensaje {
+  text-align: center;
+  margin-top: 15px;
+  font-weight: bold;
+}
