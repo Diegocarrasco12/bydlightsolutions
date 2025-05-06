@@ -284,13 +284,12 @@ html, body {
 }
 
 .portfolio-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-  justify-content: center;
-  max-width: 1200px;
-  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  justify-items: center;
 }
+
 
 .portfolio-item {
   background: #ffffff;
@@ -358,10 +357,9 @@ html, body {
 
 .testimonials-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Más anchos */
-  gap: 50px; /* Más separación entre los recuadros */
-  max-width: 1400px; /* Más espacio general */
-  margin: 0 auto;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  justify-items: center;
 }
 
 .testimonial-item {
