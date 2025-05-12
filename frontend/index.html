@@ -139,8 +139,8 @@
       <div class="contacto-texto">
         <h2>¿Listo para llevar tu proyecto al siguiente nivel?</h2>
         <p>Conversemos y demos el primer paso hacia tu nuevo sitio web.</p>
-        <button class="btn-primary" onclick="mostrarFormulario()">Contáctanos</button>
-      </div>
+        <a href="#formularioContacto" class="btn-primary">Contáctanos</a>
+      </div>      
       <div class="contacto-imagen">
         <img src="public/images/contact-icon.png" alt="Contacto" />
       </div>
@@ -148,30 +148,36 @@
   </section>
 
 <!-- FORMULARIO DE CONTACTO -->
-<section id="formularioContacto" style="background-color:#1e1e2f; padding: 60px 20px; display: none;">
-  <div style="max-width: 600px; margin: 0 auto; background-color: #2c2c3c; padding: 40px; border-radius: 10px;">
-    <h3 style="color: #fff; text-align: center; margin-bottom: 20px;">Déjame tu mensaje y te contactaré pronto</h3>
-    <form id="formContacto" style="display: flex; flex-direction: column; gap: 15px;">
-      <div>
-        <label for="nombre" style="color: #fff;">Nombre</label>
-        <input type="text" id="nombre" name="nombre" required style="width: 100%; padding: 10px; border-radius: 5px; border: none;" />
-      </div>
+<section id="formularioContacto" class="formulario-seccion">
+  <div class="formulario-contenedor">
+    <h3 class="formulario-titulo">Déjame tu mensaje y te contactaré pronto</h3>
+    <form id="formContacto" class="formulario-contacto">
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" name="nombre" required />
 
-      <div>
-        <label for="email" style="color: #fff;">Correo electrónico</label>
-        <input type="email" id="email" name="email" required style="width: 100%; padding: 10px; border-radius: 5px; border: none;" />
-      </div>
+      <label for="email">Correo electrónico</label>
+      <input type="email" id="email" name="email" required />
 
-      <div>
-        <label for="mensaje" style="color: #fff;">Mensaje</label>
-        <textarea id="mensaje" name="mensaje" rows="5" required style="width: 100%; padding: 10px; border-radius: 5px; border: none;"></textarea>
-      </div>
+      <label for="mensaje">Mensaje</label>
+      <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
 
-      <button type="submit" class="btn-primary" style="padding: 12px; border: none; border-radius: 5px; background-color: #007bff; color: white; cursor: pointer;">Enviar mensaje</button>
-      <p id="mensajeEstado" style="color: #fff; text-align: center;"></p>
+      <button type="submit" class="btn-primary">Enviar mensaje</button>
     </form>
+    <div class="whatsapp-wrapper">
+      <a href="https://wa.me/56983249135" target="_blank" class="btn-whatsapp">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" />
+        Escríbenos por WhatsApp
+      </a>
+    </div>
   </div>
 </section>
+
+
+  </div>
+</section>
+
+
+
 
 
   <!-- FOOTER -->
@@ -180,67 +186,101 @@
       <div class="footer-logo"><img src="public/images/logo.png" alt="Byd Light Solutions" /></div>
       <div class="footer-info">
         <p>Byd Light Solutions SPA</p>
-        <p>bydlightsolutions@bydlightsolutions.com</p>
+        <p>RUT: 76.161.844-6</p>
+        <p>contacto@bydlightsolutions.com</p>
         <p>© 2025 Byd Light Solutions. Todos los derechos reservados.</p>
       </div>
+      
     </div>
   </footer>
 
-  <!-- JS -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const hamburger = document.getElementById('hamburger');
-      const nav = document.querySelector('.nav');
+ <!-- JS -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.querySelector('.nav');
 
+    // Mostrar u ocultar el menú móvil
+    if (hamburger && nav) {
       hamburger.addEventListener('click', () => {
         nav.classList.toggle('active');
       });
+    }
 
-      const mostrarFormulario = () => {
-        const formulario = document.getElementById('formularioContacto');
+    // Mostrar formulario de contacto y hacer scroll suave
+    const mostrarFormulario = () => {
+      const formulario = document.getElementById('formularioContacto');
+      if (formulario) {
         formulario.style.display = 'block';
         formulario.scrollIntoView({ behavior: 'smooth' });
-      };
+      }
+    };
 
-      document.querySelectorAll('a[href="#contact"], .btn-secondary, .btn-contacto').forEach(boton => {
+    // Enlaces que abren el formulario de contacto
+    document.querySelectorAll('a[href="#contact"], .btn-secondary, .btn-contacto').forEach(boton => {
       boton.addEventListener('click', (e) => {
-      e.preventDefault();
-      mostrarFormulario();
-    });
-});
-
-      document.getElementById('formContacto')?.addEventListener('submit', async (e) => {
         e.preventDefault();
+        mostrarFormulario();
 
-        const nombre = document.getElementById('nombre').value;
-        const email = document.getElementById('email').value;
-        const mensaje = document.getElementById('mensaje').value;
-        const mensajeEstado = document.getElementById('mensajeEstado');
-
-        try {
-          const respuesta = await fetch('https://bydlight-backend.onrender.com/api/contact', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ nombre, email, mensaje })
-          });
-
-          const resultado = await respuesta.json();
-
-          if (respuesta.ok) {
-            mensajeEstado.textContent = "✅ Tu mensaje fue enviado correctamente.";
-            mensajeEstado.style.color = "green";
-            document.getElementById('formContacto').reset();
-          } else {
-            mensajeEstado.textContent = resultado.error || "❌ Error al enviar el mensaje.";
-            mensajeEstado.style.color = "red";
-          }
-        } catch (error) {
-          mensajeEstado.textContent = "❌ No se pudo enviar el mensaje. Intenta más tarde.";
-          mensajeEstado.style.color = "red";
+        // Cerrar menú móvil si está abierto
+        if (nav.classList.contains('active')) {
+          nav.classList.remove('active');
         }
       });
     });
-  </script>
+
+    // Scroll suave para todos los enlaces internos (excepto contacto ya tratado)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href !== "#contact") {
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth' });
+
+            // Cerrar menú móvil si está abierto
+            if (nav.classList.contains('active')) {
+              nav.classList.remove('active');
+            }
+          }
+        }
+      });
+    });
+
+    // Envío del formulario de contacto
+    document.getElementById('formContacto')?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value;
+      const email = document.getElementById('email').value;
+      const mensaje = document.getElementById('mensaje').value;
+      const mensajeEstado = document.getElementById('mensajeEstado');
+
+      try {
+        const respuesta = await fetch('https://bydlight-backend.onrender.com/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ nombre, email, mensaje })
+        });
+
+        const resultado = await respuesta.json();
+
+        if (respuesta.ok) {
+          mensajeEstado.textContent = "✅ Tu mensaje fue enviado correctamente.";
+          mensajeEstado.style.color = "green";
+          document.getElementById('formContacto').reset();
+        } else {
+          mensajeEstado.textContent = resultado.error || "❌ Error al enviar el mensaje.";
+          mensajeEstado.style.color = "red";
+        }
+      } catch (error) {
+        mensajeEstado.textContent = "❌ No se pudo enviar el mensaje. Intenta más tarde.";
+        mensajeEstado.style.color = "red";
+      }
+    });
+  });
+</script>
 
 </body>
 </html>
