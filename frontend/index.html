@@ -162,6 +162,8 @@
       <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
 
       <button type="submit" class="btn-primary">Enviar mensaje</button>
+      <p id="mensajeEstado" style="margin-top: 15px; text-align: center; font-weight: bold;"></p>
+   
     </form>
     <div class="whatsapp-wrapper">
       <a href="https://wa.me/56983249135" target="_blank" class="btn-whatsapp">
@@ -270,6 +272,10 @@
           mensajeEstado.textContent = "✅ Tu mensaje fue enviado correctamente.";
           mensajeEstado.style.color = "green";
           document.getElementById('formContacto').reset();
+          setTimeout(() => {
+          mensajeEstado.textContent = "";
+          }, 5000);
+
         } else {
           mensajeEstado.textContent = resultado.error || "❌ Error al enviar el mensaje.";
           mensajeEstado.style.color = "red";
