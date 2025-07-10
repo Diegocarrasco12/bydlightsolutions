@@ -50,22 +50,22 @@
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero" id="inicio">
-    <div class="hero-grid">
-      <div class="hero-text">
-        <h1>Transformamos ideas en experiencias digitales impactantes.</h1>
-        <p class="subtext">Desarrollamos sitios web a medida, rápidos y escalables, que conectan con tus clientes y potencian tu negocio.</p>
-        <div class="hero-buttons">
-          <a href="#portfolio" class="btn-primary">Ver Portafolio</a>
-          <a href="#contact" class="btn-secondary">Solicitar propuesta</a>          
-        </div>
-      </div>
-      <div class="hero-image">
-        <img src="public/images/hero-illustration.png" alt="Desarrollador creando sitios web" />
-      </div>
+<!-- HERO -->
+<section class="hero-overlay" id="inicio" style="background-image: url('./public/images/hero-illustration.png')">
+  <div class="hero-content">
+    <h1>Transformamos ideas en<br>experiencias digitales impactantes.</h1>
+    <p class="subtext">
+      Desarrollamos sitios web a medida, rápidos y escalables, que conectan con tus clientes y potencian tu negocio.
+    </p>
+    <div class="hero-buttons">
+      <a href="#portfolio" class="btn-primary">Ver Portafolio</a>
+      <a href="#contact" class="btn-secondary">Solicitar propuesta</a>
     </div>
-  </section>
+  </div>
+</section>
+
+
+
 
   <!-- ABOUT -->
   <section class="about" id="about">
@@ -102,9 +102,10 @@
 
   <!-- PORTFOLIO -->
   <section class="portfolio" id="portfolio">
-    <h2 class="section-title">Nuestro Portafolio</h2>
+    <h2 class="section-title">Nuestros Proyectos</h2>
     <div class="portfolio-grid">
       <div class="portfolio-item"><img src="public/images/pharma.jpg" alt="Proyecto Colchones Nancy" /><h3>Pharma Project</h3><p class="project-description">E-commerce para farmacias</p><a href="https://pharma-project-k64p.onrender.com/" target="_blank" class="btn-portfolio">Ver proyecto</a></div>
+      <div class="portfolio-item"><img src="public/images/farmaciadigital.jpg" alt="Tu Farmacia Digital" /><h3>Tu Farmacia Digital</h3><p class="project-description">Landing Page para ofrecer servicios de creación de farmacias digitales</p><a href="https://www.tufarmaciadigital.cl//" target="_blank" class="btn-portfolio">Ver proyecto</a></div>
       <div class="portfolio-item"><img src="public/images/cliente1.jpg" alt="Proyecto Colchones Nancy" /><h3>Colchones Nancy Angulo</h3><p class="project-description">Tienda e-commerce de colchones a medida.</p><a href="https://colchones-frontend.onrender.com/" target="_blank" class="btn-portfolio">Ver proyecto</a></div>
       <div class="portfolio-item"><img src="public/images/cliente2.jpg" alt="Proyecto Pizzería Búfalo" /><h3>Pizzería Búfalo</h3><p class="project-description">Landing page interactiva con diseño atractivo.</p><a href="https://buffalos-pizza.onrender.com/" target="_blank" class="btn-portfolio">Ver proyecto</a></div>
       <div class="portfolio-item"><img src="public/images/cliente3.jpg" alt="Proyecto Krla Beauty Studio" /><h3>Krla Beauty Studio</h3><p class="project-description">Landing page para centro de estética y reservas.</p><a href="https://karlabeautystudio.onrender.com/" target="_blank" class="btn-portfolio">Ver proyecto</a></div>
@@ -288,6 +289,9 @@
     });
   });
 </script>
+<a href="#inicio" class="scroll-top" title="Volver al inicio">
+  <img src="/frontend/public/images/logo2.png" alt="Inicio">
+</a>
 
 </body>
 </html>
